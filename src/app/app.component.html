@@ -1,0 +1,26 @@
+<h1 style="text-align: center;">{{titulo}}</h1>
+
+<form>
+  <input type="text" name="Nombre" [(ngModel)]="nombre" placeholder="Escribe tu nombre"><br><br>
+  <input type="text" name="Apellido" [(ngModel)]="apellido"  placeholder="Escribe tu apellido"><br><br>
+  <input type="text" name="Cargo" [(ngModel)]="cargo"  placeholder="Escribe tu cargo"><br><br>
+  <input type="submit" name="Registrar" (click)="registrarUsuario()"><br>
+</form>
+
+<br>
+
+<p *ngIf="registrado; else sinRegistrar">
+  {{nombre}} {{apellido}} {{mensaje}} Tu cargo es: <span [ngClass]="{paraDirector:cargo=='director'}">{{cargo}}</span>
+</p>
+
+<ng-template #sinRegistrar>
+  <p>
+    Nadie registrado
+  </p>
+</ng-template>
+
+<br><br><br><br>
+
+<ul>
+  <li *ngFor="let entrada of entradas">{{entrada | json}}</li>
+</ul>
